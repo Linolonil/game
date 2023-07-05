@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="fightarea">
+        <div id="char">
+          <strong class="name">--</strong>
+          <div>
+            <div class="lifebar">
+              <div class="bar" style="width: 10%"></div>
+            </div>
+          </div>
+          <div>
+            <button class="button" id="atacar1">ATACAR!!!</button>
+          </div>
+        </div>
+        <strong
+          style="
+            font-size: 6rem;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff,
+              0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de,
+              0 0 100px #ff00de, 0 0 150px #ff00de;
+          "
+          ><h1>x</h1></strong
+        >
+        <div id="monster">
+          <strong class="name">--</strong>
+          <div class="lifebar">
+            <div class="bar" style="width: 10%"></div>
+          </div>
+          <div>
+            <button class="button" id="atacar2">ATACAR!!!</button>
+          </div>
+        </div>
+      </div>
+      <section id="logs">
+        <section class="img logu hero"><img alt=""></section>
+        <ul class="log"></ul>
+        <section class="img logu monster"><img alt=""></section>
+      </section>
+    </div>
+    <script src="./assets/classes.js"></script>
+    <script src="./assets/index.js"></script>
+  </body>
+</html>
