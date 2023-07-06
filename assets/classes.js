@@ -1,6 +1,6 @@
 let elementoAlvo = document.querySelector("#atacar1");
 
-// Personagens
+// Classe de todos os Personagens
 
 class Personagem {
   _life = 1;
@@ -18,12 +18,32 @@ class Personagem {
     this._life = newLife < 0 ? 0 : newLife;
   }
 }
+
+// Herois
 class Knight extends Personagem {
   constructor(name) {
     super(name);
     this.life = 100;
     this.ataque = 10;
     this.defense = 8;
+    this.maxLife = this.life;
+  }
+}
+class Kratos extends Personagem {
+  constructor(name) {
+    super("KRATOS");
+    this.life = 9999;
+    this.ataque = 9999;
+    this.defense = 9999;
+    this.maxLife = this.life;
+  }
+}
+class Yasuo extends Personagem {
+  constructor(name) {
+    super("Yasuo");
+    this.life = 1;
+    this.ataque = 9999;
+    this.defense = 14;
     this.maxLife = this.life;
   }
 }
@@ -36,6 +56,7 @@ class Sorcerer extends Personagem {
     this.maxLife = this.life;
   }
 }
+// Monstros
 class LittleMonster extends Personagem {
   constructor() {
     super("Little Monster");

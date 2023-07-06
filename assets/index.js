@@ -1,29 +1,51 @@
-  let log = new Log(document.querySelector(".log"));
-  let choiceName = prompt('Digite o nome do seu cavaleiro');
-  let choiceClass = prompt('Digite a classe do seu cavaleiro (sorcerer ou knight)');
-  let choiceMonster = prompt('Digite qual o monstro que deseja enfrentar (small ou big)');
-  let char;
-  let monster;
+let log = new Log(document.querySelector(".log"));
+let char;
+let monster;
 
-  if (choiceClass.toLowerCase() === 'sorcerer') {
-    char = new Sorcerer(`${choiceName} o Mago`);
-  } else if (choiceClass.toLowerCase() === 'knight') {
-    char = new Knight(`${choiceName} o Cavaleiro`);
+let classMapping = {
+  sorcerer: Sorcerer,
+  knight: Knight,
+  kratos: Kratos,
+  yasuo: Yasuo,
+};
+
+let monsterMapping = {
+  big: BigMonster,
+  small: LittleMonster,
+};
+
+let choiceClass = prompt(
+  "Digite a classe do seu cavaleiro (sorcerer, knight)"
+).toLowerCase();
+let choiceMonster = prompt(
+  "Digite qual o monstro que deseja enfrentar (small ou big)"
+).toLowerCase();
+
+if (classMapping.hasOwnProperty(choiceClass)) {
+  if (choiceClass === "kratos") {
+    char = new Kratos();
+  } else if (choiceClass === "yasuo") {
+    char = new Yasuo();
   } else {
-    log.add("Classe inválida. Use 'sorcerer' ou 'knight'.");
+    let choiceName = prompt(`Digite o nome do seu ${choiceClass}`);
+    char = new classMapping[choiceClass](`${choiceName} o ${choiceClass}`);
   }
+} else {
+  log.add("Classe inválida. Use 'sorcerer', 'knight'");
+}
 
-  if (choiceMonster.toLowerCase() === 'big') {
-    monster = new BigMonster();
-  } else if (choiceMonster.toLowerCase() === 'small') {
-    monster = new LittleMonster();
-  } else {
-    log.add("Monstro inválido. Use 'big' ou 'small'.");
-  }
+if (monsterMapping.hasOwnProperty(choiceMonster)) {
+  monster = new monsterMapping[choiceMonster]();
+} else {
+  log.add("Monstro inválido. Use 'big' ou 'small'.");
+}
 
-  document.querySelector('#char .name').textContent = char.name;
-  document.querySelector('#monster .name').textContent = monster.name;
+document.querySelector("#char .name").textContent = char ? char.name : "";
+document.querySelector("#monster .name").textContent = monster
+  ? monster.name
+  : "";
 
+if (char && monster) {
   const stage = new Cenario(
     char,
     monster,
@@ -31,5 +53,5 @@
     document.querySelector("#monster"),
     log
   );
-
   stage.start();
+}

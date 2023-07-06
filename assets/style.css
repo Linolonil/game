@@ -1,13 +1,13 @@
-*{
+* {
   padding: 0;
   margin: 0;
-  list-style: none;;
+  list-style: none;
 }
-.container{
+.container {
   position: relative;
   height: 100vh;
   width: 100vw;
-  background-image: url('./back.jpg');
+  background-image: url("./back.jpg");
   background-size: cover;
 }
 .fightarea {
@@ -26,13 +26,23 @@
   flex-direction: column;
   gap: 1rem;
 }
-#char{
-  background: rgb(2,0,36);
-  background: linear-gradient(10deg, rgba(2,0,36,1) 0%, rgb(21, 0, 96) 50%, rgb(0, 38, 255) 100%);
+#char {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    10deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgb(21, 0, 96) 50%,
+    rgb(0, 38, 255) 100%
+  );
 }
-#monster{
-  background: rgb(2,0,36);
-  background: linear-gradient(-10deg, rgba(2,0,36,1) 0%, rgba(96,0,23,1) 50%, rgba(255,0,0,1) 100%);
+#monster {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    -10deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(96, 0, 23, 1) 50%,
+    rgba(255, 0, 0, 1) 100%
+  );
 }
 
 .lifebar {
@@ -57,7 +67,7 @@
 }
 .log {
   padding: 1rem;
-  background-color: rgba(153, 153, 153, 0.4) ;
+  background-color: rgba(153, 153, 153, 0.4);
   height: 25rem;
   width: 27rem;
   overflow-y: auto;
@@ -68,8 +78,8 @@
   font-size: large;
   border-radius: 10px;
 }
-.logu{
-  background-color: rgba(153, 153, 153, 0.4) ;
+.logu {
+  background-color: rgba(153, 153, 153, 0.4);
   height: 25rem;
   width: 27rem;
   display: flex;
@@ -78,11 +88,11 @@
   flex-direction: column;
   border-radius: 10px;
 }
-li{
+li {
   color: #fff;
   font-size: larger;
   font-weight: 400;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 /* botao */
@@ -101,12 +111,9 @@ li{
   background-color: rgba(0, 0, 0, 0);
   border: none;
   border-radius: 1rem;
-  transition: color .2s linear,
-        box-shadow .3s linear,
-        background-color .3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: color 0.2s linear, box-shadow 0.3s linear,
+    background-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-
-
 
 .button:focus:before,
 .button:hover:before,
@@ -118,14 +125,14 @@ li{
 
 .button:before,
 .button:after {
-  content: '';
+  content: "";
   position: absolute;
   pointer-events: none;
   left: 50%;
   width: 0%;
   height: 2px;
   background-color: #fff;
-  transition: width, left, 250ms cubic-bezier(0.25, .8, .25, 1);
+  transition: width, left, 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .button:before {
@@ -135,27 +142,80 @@ li{
 .button:after {
   bottom: -2px;
 }
-.name{
+.name {
   font-size: xx-large;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: 400;
   color: #fff;
 }
 /*  */
 .log::-webkit-scrollbar {
-  width: 12px;               /* width of the entire scrollbar */
+  width: 12px; /* width of the entire scrollbar */
 }
 
 .log::-webkit-scrollbar-track {
-  background: rgba(247, 247, 247, 0);        /* color of the tracking area */
+  background: rgba(247, 247, 247, 0); /* color of the tracking area */
 }
 
 .log::-webkit-scrollbar-thumb {
-  background-color: rgb(143, 81, 194);    /* color of the scroll thumb */
-  border-radius: 10px;       /* roundness of the scroll thumb */
+  background-color: rgb(143, 81, 194); /* color of the scroll thumb */
+  border-radius: 10px; /* roundness of the scroll thumb */
   border: 1px solid rgba(255, 255, 255, 0);
 }
 /*  */
-img{
-  width: 7rem;
+img {
+  position: relative;
+  width: 15rem;
+  max-width: 11rem;
+}
+/* animação */
+.heroo {
+  position: relative;
+  top: 0;
+  left: 0;
+  animation: forwardAndBackwardi 5000ms linear infinite,
+    moveUpDown 5500ms infinite;
+}
+.monsterr {
+  position: relative;
+  top: 0;
+  left: 0;
+  animation: forwardAndBackward 5500ms linear infinite,
+    moveUpDown 2500ms infinite;
+}
+
+@keyframes moveUpDown {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 10px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes forwardAndBackward {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes forwardAndBackwardi {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+  
 }
